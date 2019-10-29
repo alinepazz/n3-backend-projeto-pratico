@@ -3,7 +3,7 @@ const app = express()
 
 
 const index = require("./routes/index")
-//  const tarefas = require("./routes/tarefasRoute")
+  const tarefas = require("./routes/tarefasRoute")
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*")
@@ -15,6 +15,6 @@ app.use(function(req, res, next) {
 })
 
  app.use("/", index)
-// app.use("/tarefas", tarefas)
+app.use("/tarefas", tarefas)
 
 module.exports = app
