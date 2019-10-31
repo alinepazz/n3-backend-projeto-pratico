@@ -26,3 +26,6 @@ exports.getColaborador = (req, res) => {
   const nomesColaborador = tarefas.filter(nomesColaborador => nomesColaborador.nomeColaborador == colaborador)
   res.status(200).send(nomesColaborador)
 }
+exports.getInclusao = (req, res) => {
+  const 
+}

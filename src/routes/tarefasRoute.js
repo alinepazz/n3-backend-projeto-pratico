@@ -6,6 +6,7 @@ router.get("/", controller.get)
 router.get("/:id", controller.getById)
 router.get("/concluidos/filtrar", controller.getConcluidos)
 router.get("/colaborador/:nomeColaborador", controller.getColaborador)
+router.get("/:inclusao", controller.getInclusao)
 
 
 module.exports = router
