@@ -27,5 +27,17 @@ exports.getColaborador = (req, res) => {
   res.status(200).send(nomesColaborador)
 }
 exports.getInclusao = (req, res) => {
-  const 
+  const data = tarefas.sort(function (a, b) {
+    if (a.dataInclusao > b.dataInclusao) {
+      return 1;
+    }
+    if (a.dataInclusao < b.dataInclusao) {
+      return -1;
+    }
+  
+    return 0;
+  });
+  res.status(200).send(data)
+
 }
+ 
