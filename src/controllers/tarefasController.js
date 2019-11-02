@@ -21,23 +21,33 @@ exports.getConcluidos = (req, res) => {
  
  res.status(200).send(tarefasConcluidas)
 }
+
 exports.getColaborador = (req, res) => {
   const colaborador = req.params.nomeColaborador
   const nomesColaborador = tarefas.filter(nomesColaborador => nomesColaborador.nomeColaborador == colaborador)
   res.status(200).send(nomesColaborador)
 }
-exports.getInclusao = (req, res) => {
-  const data = tarefas.sort(function (a, b) {
-    if (a.dataInclusao > b.dataInclusao) {
-      return 1;
-    }
-    if (a.dataInclusao < b.dataInclusao) {
-      return -1;
-    }
-  
-    return 0;
-  });
-  res.status(200).send(data)
 
+
+
+
+function mudarStringParaData(data){
+  const dataSplit = data.split("/");
+  const dataComSeparador = dataSplit[1] + "-" + dataSplit[0] + "-" + dataSplit[2];
+  const dataFormatada = new Date(dataComSeparador);
+
+return dataFormatada;
 }
- 
+
+exports.getInclusao = (req, res) =>{
+  const datasOrdenadas = tarefas.sort(function (a, b){
+  if(mudarStringParaData(a.dataInclusao) < mudarStringParaData(b.dataInclusao)){
+    return 1;
+  }
+  if (mudarStringParaData(a.dataInclusao) > mudarStringParaData(b.mudarStringParaData)){
+    return -1;
+  }
+  return 0;
+  });
+  res.status(200).send(datasOrdenadas)
+}
