@@ -44,7 +44,7 @@ exports.getInclusao = (req, res) =>{
   if(mudarStringParaData(a.dataInclusao) < mudarStringParaData(b.dataInclusao)){
     return 1;
   }
-  if (mudarStringParaData(a.dataInclusao) > mudarStringParaData(b.mudarStringParaData)){
+  if (mudarStringParaData(a.dataInclusao) > mudarStringParaData(b.dataInclusao)){
     return -1;
   }
   return 0;
